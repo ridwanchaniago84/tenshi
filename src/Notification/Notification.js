@@ -13,8 +13,12 @@ PushNotification.createChannel(
 );
 
 const notif = (message) => {
-  fetch('https://06d5-114-5-212-121.ngrok.io/api/c3240bced4d9afdcdcb375fbdde8f3ad/tenshi', {
+  fetch('https://tenshihinanai.000webhostapp.com/api/c3240bced4d9afdcdcb375fbdde8f3ad/tenshi', {
     method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify({
       message: message
     })

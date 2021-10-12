@@ -3,7 +3,6 @@ import {
     View,
     StyleSheet,
     Text,
-    Button,
     Image,
     SafeAreaView,
     ScrollView,
@@ -14,10 +13,12 @@ import { connect } from 'react-redux';
 import Voice from '@react-native-voice/voice';
 import Modal from "react-native-modal";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faDotCircle } from '@fortawesome/free-solid-svg-icons'
+import { faDotCircle, faMagnet } from '@fortawesome/free-solid-svg-icons'
 
 import { notif, cancelNotif, statusNotification } from '../../Notification/Notification';
 import { changeVoice, changeStatus, changeStatusModal } from '../../Redux/Action/Action';
+
+let checkStatus = false;
 
 const startRecord = async () => {
     try {
@@ -29,12 +30,13 @@ const startRecord = async () => {
 
 const Home = (props) => {
     const AIName = [
-        'tenshi', 'Tenshi', 'tensi', 'Tensi'
+        'tenshi', 'Tenshi', 'tensi', 'Tensi', 'pensi', 'Pensi'
     ];
 
     const statusChanged = (status) => {
         props.dispatch(changeStatus(status));
         props.dispatch(changeStatusModal(false));
+        checkStatus = status;
 
         if (status) {
             startRecord();
@@ -77,9 +79,6 @@ const Home = (props) => {
 
     return (
         <View style={styles.container}>
-            <View style={{ backgroundColor: '#2f3136' }}>
-                <Text style={{ padding: 15, color: '#ffffff', fontSize: 20, fontWeight: "bold" }}>AI Setting</Text>
-            </View>
             <Image
                 style={{ width: '100%' }}
                 source={require('../../Assets/106874dd3c2c1644490e257c7447a25a.png')}
@@ -102,10 +101,20 @@ const Home = (props) => {
             <SafeAreaView>
                 <ScrollView>
                     <Text style={{ color: '#b9bbbe', fontSize: 18, padding: 15 }}>AI SETTING</Text>
+
                     <TouchableHighlight onPress={() => props.dispatch(changeStatusModal(true))}>
                         <View style={{ flexDirection: 'row', backgroundColor: "#36393f" }}>
                             <FontAwesomeIcon style={{ color: '#b9bbbe', paddingLeft: 50, transform: [{ translateY: 15 }] }} size={25} icon={faDotCircle} />
                             <Text style={{ color: '#e1e2e4', fontSize: 16, paddingLeft: 15, paddingTop: 15, paddingBottom: 15 }}>Set Status</Text>
+                        </View>
+                    </TouchableHighlight>
+
+                    <TouchableHighlight onPress={() =>
+                        props.propsNavigation.navigate('torrentDownload')
+                    }>
+                        <View style={{ flexDirection: 'row', backgroundColor: "#36393f" }}>
+                            <FontAwesomeIcon style={{ color: '#b9bbbe', paddingLeft: 50, transform: [{ translateY: 15 }] }} size={25} icon={faMagnet} />
+                            <Text style={{ color: '#e1e2e4', fontSize: 16, paddingLeft: 15, paddingTop: 15, paddingBottom: 15 }}>Torrent Download</Text>
                         </View>
                     </TouchableHighlight>
                 </ScrollView>
@@ -145,16 +154,17 @@ const styles = StyleSheet.create({
     }
 });
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, props) => {
     return {
         voiceText: state.mainState.voiceText,
         statusAI: state.mainState.statusAI,
-        statusModal: state.mainState.statusModal
+        statusModal: state.mainState.statusModal,
+        propsNavigation: props.navigation
     };
 }
 
-// AppRegistry.registerHeadlessTask('SomeTaskName', () =>
-//     startRecord()
-// );
+AppRegistry.registerHeadlessTask('SomeTaskName', () => {
+    if (checkStatus) startRecord();
+});
 
 export default connect(mapStateToProps)(Home);
