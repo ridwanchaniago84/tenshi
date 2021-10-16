@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { connect } from 'react-redux';
 import {
     View,
     StyleSheet,
@@ -27,22 +28,38 @@ import {
 //     //     .catch((error) => console.warn('startAppByPackageName: could not open', error)); // Open App
 // }
 
-const ListApp = () => {
+const ListApp = (props) => {
+    const contoh2 = [
+        {
+            appName: 'hesoyam',
+            appPackage: 'com.hesoyam'
+        },
+        {
+            appName: 'akjjyglc',
+            appPackage: 'com.akjjyglc'
+        }
+    ];
 
+    console.log(contoh2.find(object => object.appName === 'akjjyglc').appPackage);
+    
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
-                <TouchableHighlight onPress={() => { return }}>
-                    <View style={{ flexDirection: 'row', backgroundColor: "#36393f" }}>
-                        <Text style={{ color: '#e1e2e4', fontSize: 16, paddingLeft: 15, paddingTop: 15, paddingBottom: 15 }}>Set Status</Text>
-                    </View>
-                </TouchableHighlight>
+                {
+                    props.listApp.map((appName) => {
+                        <TouchableHighlight onPress={() => { return }}>
+                            <View style={{ flexDirection: 'row', backgroundColor: "#36393f" }}>
+                                <Text style={{ color: '#e1e2e4', fontSize: 16, paddingLeft: 15, paddingTop: 15, paddingBottom: 15 }}>{appName}</Text>
+                            </View>
+                        </TouchableHighlight>
+                    })
+                }
 
-                <TouchableHighlight onPress={() => { return }}>
+                {/* <TouchableHighlight onPress={() => { return }}>
                     <View style={{ flexDirection: 'row', backgroundColor: "#36393f" }}>
                         <Text style={{ color: '#e1e2e4', fontSize: 16, paddingLeft: 15, paddingTop: 15, paddingBottom: 15 }}>Set Status</Text>
                     </View>
-                </TouchableHighlight>
+                </TouchableHighlight> */}
             </ScrollView>
         </SafeAreaView>
     );
@@ -55,4 +72,10 @@ const styles = StyleSheet.create({
     }
 });
 
-export default ListApp;
+const mapStateToProps = (state, props) => {
+    return {
+        listApp: state.mainState.listApp,
+    };
+}
+
+export default connect(mapStateToProps)(ListApp);
