@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 import Voice from '@react-native-voice/voice';
 import Modal from "react-native-modal";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faDotCircle, faMagnet } from '@fortawesome/free-solid-svg-icons'
+import { faDotCircle, faMagnet, faThLarge } from '@fortawesome/free-solid-svg-icons'
 
 import { notif, cancelNotif, statusNotification } from '../../Notification/Notification';
 import { changeVoice, changeStatus, changeStatusModal } from '../../Redux/Action/Action';
@@ -115,6 +115,15 @@ const Home = (props) => {
                         <View style={{ flexDirection: 'row', backgroundColor: "#36393f" }}>
                             <FontAwesomeIcon style={{ color: '#b9bbbe', paddingLeft: 50, transform: [{ translateY: 15 }] }} size={25} icon={faMagnet} />
                             <Text style={{ color: '#e1e2e4', fontSize: 16, paddingLeft: 15, paddingTop: 15, paddingBottom: 15 }}>Torrent Download</Text>
+                        </View>
+                    </TouchableHighlight>
+
+                    <TouchableHighlight onPress={() =>
+                        props.propsNavigation.navigate('listApp')
+                    }>
+                        <View style={{ flexDirection: 'row', backgroundColor: "#36393f" }}>
+                            <FontAwesomeIcon style={{ color: '#b9bbbe', paddingLeft: 50, transform: [{ translateY: 15 }] }} size={25} icon={faThLarge} />
+                            <Text style={{ color: '#e1e2e4', fontSize: 16, paddingLeft: 15, paddingTop: 15, paddingBottom: 15 }}>Openable Application</Text>
                         </View>
                     </TouchableHighlight>
                 </ScrollView>

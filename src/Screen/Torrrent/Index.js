@@ -12,8 +12,6 @@ import {
 // import IntentLauncher, { IntentConstant } from 'react-native-intent-launcher'
 // import RNInstalledApplication from 'react-native-installed-application';
 
-
-
 // const openOtherApp = () => {
 //     // RNInstalledApplication.getApps()
 //     //     .then(apps => {

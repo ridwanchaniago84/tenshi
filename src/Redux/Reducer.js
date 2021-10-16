@@ -1,9 +1,10 @@
-import { CHANGE_VOICE, CHANGE_STATUS, CHANGE_STATUS_MODAL } from './Action/Constant';
+import { CHANGE_VOICE, CHANGE_STATUS, CHANGE_STATUS_MODAL, REFRESH_APP } from './Action/Constant';
 
 const initialState = {
     voiceText: '',
     statusAI: false,
-    statusModal: false
+    statusModal: false,
+    listApp: []
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -22,6 +23,11 @@ const reducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 statusModal: action.payload
+            }
+        case REFRESH_APP:
+            return {
+                ...state,
+                listApp: action.payload
             }
         default:
             return state;

@@ -1,3 +1,4 @@
 export const CHANGE_VOICE = 'CHANGE_VOICE';
 export const CHANGE_STATUS = 'CHANGE_STATUS';
 export const CHANGE_STATUS_MODAL = 'CHANGE_STATUS_MODAL';
+export const REFRESH_APP = 'REFRESH_APP';
