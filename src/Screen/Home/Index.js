@@ -104,7 +104,7 @@ const Home = (props) => {
 
                     <TouchableHighlight onPress={() => props.dispatch(changeStatusModal(true))}>
                         <View style={{ flexDirection: 'row', backgroundColor: "#36393f" }}>
-                            <FontAwesomeIcon style={{ color: '#b9bbbe', paddingLeft: 50, transform: [{ translateY: 15 }] }} size={25} icon={faDotCircle} />
+                            <FontAwesomeIcon style={{ color: '#b9bbbe', paddingLeft: 50, transform: [{ translateY: 15 }] }} size={20} icon={faDotCircle} />
                             <Text style={{ color: '#e1e2e4', fontSize: 16, paddingLeft: 15, paddingTop: 15, paddingBottom: 15 }}>Set Status</Text>
                         </View>
                     </TouchableHighlight>
@@ -113,7 +113,7 @@ const Home = (props) => {
                         props.propsNavigation.navigate('torrentDownload')
                     }>
                         <View style={{ flexDirection: 'row', backgroundColor: "#36393f" }}>
-                            <FontAwesomeIcon style={{ color: '#b9bbbe', paddingLeft: 50, transform: [{ translateY: 15 }] }} size={25} icon={faMagnet} />
+                            <FontAwesomeIcon style={{ color: '#b9bbbe', paddingLeft: 50, transform: [{ translateY: 15 }] }} size={20} icon={faMagnet} />
                             <Text style={{ color: '#e1e2e4', fontSize: 16, paddingLeft: 15, paddingTop: 15, paddingBottom: 15 }}>Torrent Download</Text>
                         </View>
                     </TouchableHighlight>
@@ -122,7 +122,7 @@ const Home = (props) => {
                         props.propsNavigation.navigate('listApp')
                     }>
                         <View style={{ flexDirection: 'row', backgroundColor: "#36393f" }}>
-                            <FontAwesomeIcon style={{ color: '#b9bbbe', paddingLeft: 50, transform: [{ translateY: 15 }] }} size={25} icon={faThLarge} />
+                            <FontAwesomeIcon style={{ color: '#b9bbbe', paddingLeft: 50, transform: [{ translateY: 15 }] }} size={20} icon={faThLarge} />
                             <Text style={{ color: '#e1e2e4', fontSize: 16, paddingLeft: 15, paddingTop: 15, paddingBottom: 15 }}>Openable Application</Text>
                         </View>
                     </TouchableHighlight>

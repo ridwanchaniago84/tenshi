@@ -1,4 +1,4 @@
-import { CHANGE_VOICE, CHANGE_STATUS, CHANGE_STATUS_MODAL } from './Constant';
+import { CHANGE_VOICE, CHANGE_STATUS, CHANGE_STATUS_MODAL, REFRESH_APP } from './Constant';
 
 export const changeVoice = (val) => ({
     type: CHANGE_VOICE,
@@ -12,5 +12,10 @@ export const changeStatus = (val) => ({
 
 export const changeStatusModal = (val) => ({
     type: CHANGE_STATUS_MODAL,
+    payload: val
+});
+
+export const refreshApp = (val) => ({
+    type: REFRESH_APP,
     payload: val
 });

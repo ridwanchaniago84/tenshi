@@ -70,7 +70,6 @@ const Torrent = () => {
                         style={styles.button}
                         title="Download"
                         color="#5865f2"
-                        accessibilityLabel="Learn more about this purple button"
                         onPress={sendMagnet}
                     />
                 </View>
