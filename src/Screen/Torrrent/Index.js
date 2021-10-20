@@ -5,29 +5,10 @@ import {
     Text,
     TextInput,
     Button,
-    TouchableHighlight,
     Linking,
-    ToastAndroid
+    ToastAndroid,
+    TouchableWithoutFeedback
 } from 'react-native';
-// import IntentLauncher, { IntentConstant } from 'react-native-intent-launcher'
-// import RNInstalledApplication from 'react-native-installed-application';
-
-// const openOtherApp = () => {
-//     // RNInstalledApplication.getApps()
-//     //     .then(apps => {
-//     //         let obj = apps.find(o => o.appName === 'example Wallpapers');
-//     //         if (!obj) return console.log('success');
-//     //         console.log(obj)
-//     //     })
-//     //     .catch(error => {
-//     //         console.log(error);
-//     //     }); // Listing App
-//     // IntentLauncher.startAppByPackageName('io.stellio.player')
-//     //     .then((result) => {
-//     //         console.log('startAppByPackageName started');
-//     //     })
-//     //     .catch((error) => console.warn('startAppByPackageName: could not open', error)); // Open App
-// }
 
 const Torrent = () => {
     const [borderColor, setBorderColor] = useState('#0000004d');
@@ -74,9 +55,9 @@ const Torrent = () => {
                     />
                 </View>
                 <View style={{ marginTop: 15 }}>
-                    <TouchableHighlight onPress={() => { Linking.openURL('https://ztorrentdowloader.herokuapp.com/file/') }}>
+                    <TouchableWithoutFeedback onPress={() => { Linking.openURL('https://ztorrentdowloader.herokuapp.com/file/') }}>
                         <Text style={{ color: '#1484b2', fontSize: 15 }}>View File</Text>
-                    </TouchableHighlight>
+                    </TouchableWithoutFeedback>
                 </View>
             </View>
         </View>

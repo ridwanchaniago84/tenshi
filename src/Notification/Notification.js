@@ -1,4 +1,5 @@
 import PushNotification, { Importance } from 'react-native-push-notification'
+import { action } from '../Commons/Action';
 
 PushNotification.createChannel(
   {
@@ -12,18 +13,25 @@ PushNotification.createChannel(
   },
 );
 
-const notif = (message) => {
-  fetch('https://tenshihinanai.000webhostapp.com/api/c3240bced4d9afdcdcb375fbdde8f3ad/tenshi', {
+const responseAI = (message) => {
+  fetch('https://dc41-114-5-211-204.ngrok.io/api/c3240bced4d9afdcdcb375fbdde8f3ad/tenshi', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      message: message
+      message: message,
+      platform: 'android'
     })
   })
     .then(response => response.json())
+    .then(response => {
+      if (response.execution.status)
+        action(response.execution);
+
+      return response;
+    })
     .then(response => {
       PushNotification.localNotification({
         channelId: "1",
@@ -48,4 +56,4 @@ const statusNotification = () => {
 
 const cancelNotif = () => PushNotification.cancelAllLocalNotifications()
 
-export { notif, cancelNotif, statusNotification };
+export { responseAI, cancelNotif, statusNotification };

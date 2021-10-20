@@ -11,38 +11,17 @@ import {
     Image,
     ActivityIndicator
 } from 'react-native';
-// import IntentLauncher, { IntentConstant } from 'react-native-intent-launcher'
 import RNInstalledApplication from 'react-native-installed-application';
 
 import { refreshApp } from '../../Redux/Action/Action';
 
-// const openOtherApp = () => {
-//     // IntentLauncher.startAppByPackageName('io.stellio.player')
-//     //     .then((result) => {
-//     //         console.log('startAppByPackageName started');
-//     //     })
-//     //     .catch((error) => console.warn('startAppByPackageName: could not open', error)); // Open App
-// }
-
 const ListApp = (props) => {
     const [isLoading, setIsLoading] = useState(false);
-    // const contoh2 = [
-    //     {
-    //         appName: 'hesoyam',
-    //         appPackage: 'com.hesoyam'
-    //     },
-    //     {
-    //         appName: 'akjjyglc',
-    //         appPackage: 'com.akjjyglc'
-    //     }
-    // ];
-
-    // console.log(contoh2.find(object => object.appName === 'akjjyglc').appPackage);
 
     const refreshAppsList = () => {
         setIsLoading(true);
 
-        RNInstalledApplication.getApps()
+        RNInstalledApplication.getNonSystemApps()
             .then(apps => props.dispatch(refreshApp(apps)))
             .then(() => setIsLoading(false))
             .catch(error => console.log(error));

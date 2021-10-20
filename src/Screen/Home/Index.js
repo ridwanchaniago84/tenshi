@@ -15,7 +15,7 @@ import Modal from "react-native-modal";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faDotCircle, faMagnet, faThLarge } from '@fortawesome/free-solid-svg-icons'
 
-import { notif, cancelNotif, statusNotification } from '../../Notification/Notification';
+import { responseAI, cancelNotif, statusNotification } from '../../Notification/Notification';
 import { changeVoice, changeStatus, changeStatusModal } from '../../Redux/Action/Action';
 
 let checkStatus = false;
@@ -30,7 +30,7 @@ const startRecord = async () => {
 
 const Home = (props) => {
     const AIName = [
-        'tenshi', 'Tenshi', 'tensi', 'Tensi', 'pensi', 'Pensi'
+        'tenshi', 'Tenshi', 'tensi', 'Tensi', 'pensi', 'Pensi', 'fancy', 'Fancy', 'mc', 'MC'
     ];
 
     const statusChanged = (status) => {
@@ -60,7 +60,7 @@ const Home = (props) => {
 
                 if (callingAI && !founded) {
                     founded = true;
-                    notif(e.value[0]);
+                    responseAI(e.value[0]);
                 }
             });
 
