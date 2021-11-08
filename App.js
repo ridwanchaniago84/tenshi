@@ -9,6 +9,7 @@ import { persistor, store } from './src/Redux/Store';
 import Home from "./src/Screen/Home/Index";
 import Torrent from "./src/Screen/Torrrent/Index";
 import listApp from "./src/Screen/App/ListApp";
+import Developer from './src/Screen/Developer/Developer';
 
 const Stack = createStackNavigator();
 
@@ -50,6 +51,17 @@ const App = () => {
                 },
                 headerTintColor: '#fff',
                 title: 'Openable Apps'
+              }}
+            />
+            <Stack.Screen
+              name="developer"
+              component={Developer}
+              options={{
+                headerStyle: {
+                  backgroundColor: '#2f3136'
+                },
+                headerTintColor: '#fff',
+                title: 'Developer Menu'
               }}
             />
           </Stack.Navigator>

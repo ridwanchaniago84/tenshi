@@ -126,6 +126,15 @@ const Home = (props) => {
                             <Text style={{ color: '#e1e2e4', fontSize: 16, paddingLeft: 15, paddingTop: 15, paddingBottom: 15 }}>Openable Application</Text>
                         </View>
                     </TouchableHighlight>
+
+                    <TouchableHighlight onPress={() =>
+                        props.propsNavigation.navigate('developer')
+                    }>
+                        <View style={{ flexDirection: 'row', backgroundColor: "#36393f" }}>
+                            <FontAwesomeIcon style={{ color: '#b9bbbe', paddingLeft: 50, transform: [{ translateY: 15 }] }} size={20} icon={faThLarge} />
+                            <Text style={{ color: '#e1e2e4', fontSize: 16, paddingLeft: 15, paddingTop: 15, paddingBottom: 15 }}>Developer Menu</Text>
+                        </View>
+                    </TouchableHighlight>
                 </ScrollView>
             </SafeAreaView>
             <Modal

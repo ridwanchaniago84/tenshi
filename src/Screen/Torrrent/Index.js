@@ -54,6 +54,7 @@ const Torrent = () => {
                         onPress={sendMagnet}
                     />
                 </View>
+
                 <View style={{ marginTop: 15 }}>
                     <TouchableWithoutFeedback onPress={() => { Linking.openURL('https://ztorrentdowloader.herokuapp.com/file/') }}>
                         <Text style={{ color: '#1484b2', fontSize: 15 }}>View File</Text>
