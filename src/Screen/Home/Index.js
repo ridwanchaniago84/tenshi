@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 import Voice from '@react-native-voice/voice';
 import Modal from "react-native-modal";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faDotCircle, faMagnet, faThLarge } from '@fortawesome/free-solid-svg-icons'
+import { faDotCircle, faMagnet, faThLarge, faCode } from '@fortawesome/free-solid-svg-icons'
 
 import { responseAI, cancelNotif, statusNotification } from '../../Notification/Notification';
 import { changeVoice, changeStatus, changeStatusModal } from '../../Redux/Action/Action';
@@ -131,7 +131,7 @@ const Home = (props) => {
                         props.propsNavigation.navigate('developer')
                     }>
                         <View style={{ flexDirection: 'row', backgroundColor: "#36393f" }}>
-                            <FontAwesomeIcon style={{ color: '#b9bbbe', paddingLeft: 50, transform: [{ translateY: 15 }] }} size={20} icon={faThLarge} />
+                            <FontAwesomeIcon style={{ color: '#b9bbbe', paddingLeft: 50, transform: [{ translateY: 15 }] }} size={20} icon={faCode} />
                             <Text style={{ color: '#e1e2e4', fontSize: 16, paddingLeft: 15, paddingTop: 15, paddingBottom: 15 }}>Developer Menu</Text>
                         </View>
                     </TouchableHighlight>

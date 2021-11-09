@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
     View,
     StyleSheet,
@@ -9,6 +9,14 @@ import Tts from 'react-native-tts'
 Tts.setDefaultLanguage('ja-JP');
 
 const Developer = () => {
+    const [availableVoice, setAvailableVoice] = useState();
+
+    useEffect(() => {
+        Tts.voices().then(voices => {
+            setAvailableVoice(['tes', 'tes2']);
+            console.log(availableVoice);
+        });
+    }, []);
 
     const testVoince = () => {
         Tts.getInitStatus().then(() => {
