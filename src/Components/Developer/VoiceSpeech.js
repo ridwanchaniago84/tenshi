@@ -12,13 +12,21 @@ import {
 import Modal from "react-native-modal";
 import Tts from 'react-native-tts';
 
+import { changeVoiceCharacter } from '../../Redux/Action/Action';
+
 const VoiceSpeech = React.memo((props) => {
     const [showModalVoice, setShowModalVoice] = useState(false);
-    const [voiceList, setVoiceList] = useState(['tes1', 'tes2']);
+    const [voiceList, setVoiceList] = useState([]);
 
-    // useEffect(() => {
-    //     return setVoiceList(['tes1', 'tes2']);
-    // }, []);
+    useEffect(() => {
+        // setVoiceList([
+        //     { id: 'com.apple.ttsbundle.Moira-compact', name: 'Moira', language: 'en-IE', quality: 300 },
+        //     { id: 'com.apple.ttsbundle.Samantha-compact', name: 'Samantha', language: 'en-US' }
+        // ]);
+        Tts.voices().then(voices => setVoiceList(voices));
+        Tts.setDefaultLanguage(props.voiceCharacter.language);
+        Tts.setDefaultVoice(props.voiceCharacter.compact);
+    }, []);
 
     const testVoince = () => {
         Tts.getInitStatus().then(() => {
@@ -30,15 +38,31 @@ const VoiceSpeech = React.memo((props) => {
         });
     }
 
+    const changeVoice = (voice) => {
+        props.dispatch(changeVoiceCharacter({
+            name: voice.name,
+            language: voice.language,
+            compact: voice.id
+        }));
+
+        Tts.setDefaultLanguage(voice.language);
+        Tts.setDefaultVoice(voice.id);
+
+        setShowModalVoice(false);
+    }
+
     const VoiceListComponent = voiceList.map((voice, index) => {
         return (
-            <TouchableHighlight key={index}>
+            <TouchableHighlight
+                key={index}
+                onPress={() => changeVoice(voice)}
+            >
                 <View style={{ flexDirection: 'row', backgroundColor: "#36393f" }}>
-                    <Text style={{ color: '#e1e2e4', fontSize: 16, paddingLeft: 40, paddingTop: 15, paddingBottom: 15 }}>{voice}</Text>
+                    <Text style={{ color: '#e1e2e4', fontSize: 16, paddingLeft: 20, paddingTop: 15, paddingBottom: 15 }}>{voice.name} ({voice.language})</Text>
                 </View>
             </TouchableHighlight>
         )
-    })
+    });
 
     return (
         <>
@@ -51,12 +75,13 @@ const VoiceSpeech = React.memo((props) => {
                         onPress={() => setShowModalVoice(true)}
                     >
                         <View style={{ flexDirection: 'row', backgroundColor: "#36393f" }}>
-                            <Text style={{ color: '#e1e2e4', fontSize: 16, paddingLeft: 15, paddingTop: 15, paddingBottom: 15 }}>Language</Text>
+                            <Text style={{ color: '#e1e2e4', fontSize: 16, paddingLeft: 15, paddingTop: 15, paddingBottom: 15 }}>Voice</Text>
+                            <Text style={{ color: '#e1e2e4', fontSize: 16, paddingTop: 15, position: 'absolute', right: 0, paddingRight: 15 }}>{props.voiceCharacter.name}</Text>
                         </View>
                     </TouchableHighlight>
 
                     <View style={styles.container}>
-                        <View style={{ margin: 15 }}>
+                        <View style={{ margin: 15, marginTop: 0 }}>
                             <View style={styles.buttonContainer}>
                                 <Button
                                     style={styles.button}
@@ -74,6 +99,7 @@ const VoiceSpeech = React.memo((props) => {
             <Modal
                 isVisible={showModalVoice}
                 onBackdropPress={() => setShowModalVoice(false)}
+                onRequestClose={() => setShowModalVoice(false)}
             >
                 <View style={{ backgroundColor: '#36393f' }}>
                     <Text style={{ padding: 15, color: '#ffffff', fontSize: 20, fontWeight: "bold", borderBottomWidth: 1, borderBottomColor: '#42454a', textAlign: 'center' }}>Language</Text>
@@ -107,7 +133,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state, props) => {
     return {
-        listApp: state.mainState.listApp,
+        voiceCharacter: state.mainState.voiceCh,
     };
 }
 

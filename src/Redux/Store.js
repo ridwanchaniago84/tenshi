@@ -6,9 +6,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import reducer from './Reducer';
 
 const persistConfig = {
-    key: 'listApp',
+    key: 'root',
     storage: AsyncStorage,
-    whitelist: ['listApp']
+    whitelist: ['listApp', 'voiceCh']
 }
 
 const rootReducer = combineReducers(
