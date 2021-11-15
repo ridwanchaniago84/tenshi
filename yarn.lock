@@ -5892,6 +5892,11 @@ react-native-intent-launcher@^0.2.1:
   resolved "https://registry.yarnpkg.com/react-native-intent-launcher/-/react-native-intent-launcher-0.2.1.tgz#1519e8b0b87285d579c44cd83831bbcd8c08830b"
   integrity sha512-V1rzMQrMsvvLA8mJqw2lrHwMseeo8XEbzNI9c2YsR2oUTF2tzw4mHzV/mKuBxL2cJEksPekpA53vJeM8YtjwYA==
 
+react-native-launch-application@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-launch-application/-/react-native-launch-application-1.0.1.tgz#dfe837ddfe9b35e9df773cc2ccdf2a0223c3dafc"
+  integrity sha512-BnCM/1R+iAHrMnC/HKtPgF0ylvO9rUhRjJKSBHJl1HbYuZh+UXL0gBJCoHTzXz3d8tAcAc9Mpg8zLpQlAZrjfQ==
+
 react-native-modal@^13.0.0:
   version "13.0.0"
   resolved "https://registry.yarnpkg.com/react-native-modal/-/react-native-modal-13.0.0.tgz#b7117400cae8548e713eed760077dee44f78628e"

@@ -23,6 +23,7 @@
     "react-native-gesture-handler": "^1.10.3",
     "react-native-installed-application": "^1.0.6",
     "react-native-intent-launcher": "^0.2.1",
+    "react-native-launch-application": "^1.0.1",
     "react-native-modal": "^13.0.0",
     "react-native-push-notification": "^7.4.0",
     "react-native-safe-area-context": "^3.3.2",

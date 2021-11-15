@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.reactlibrary.SajjadLaunchApplicationPackage;
 import com.poberwong.launcher.IntentLauncherPackage;
 import com.wenkesj.voice.VoicePackage;
 import com.facebook.react.ReactInstanceManager;
