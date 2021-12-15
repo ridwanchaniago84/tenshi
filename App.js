@@ -22,12 +22,7 @@ const App = () => {
             <Stack.Screen
               name="AISetting"
               component={Home}
-              options={{
-                headerStyle: {
-                  backgroundColor: '#2f3136'
-                },
-                headerTintColor: '#fff'
-              }}
+              options={{headerShown: false}}
             />
 
             <Stack.Screen

@@ -14,6 +14,9 @@ import Voice from '@react-native-voice/voice';
 import Modal from "react-native-modal";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faDotCircle, faMagnet, faThLarge, faCode } from '@fortawesome/free-solid-svg-icons'
+import { style } from '../../Commons/Style';
+
+import Header from '../../Components/Home/Header';
 
 import { responseAI, cancelNotif, statusNotification } from '../../Notification/Notification';
 import { changeVoice, changeStatus, changeStatusModal } from '../../Redux/Action/Action';
@@ -78,15 +81,17 @@ const Home = (props) => {
     }, []);
 
     return (
-        <View style={styles.container}>
-            <Image
+        <View style={style.body}>
+            <Header />
+            {/* <Image
                 style={{ width: '100%' }}
                 source={require('../../Assets/106874dd3c2c1644490e257c7447a25a.png')}
             />
             <View style={{ position: 'relative', zIndex: 1 }}>
                 <Image
                     style={{ width: 100, height: 100, borderRadius: 100 / 2, position: 'absolute', transform: [{ translateY: -50 }, { translateX: 15 }] }}
-                    source={require('../../Assets/723ed5ec3a7938481878344b4389dd7a.png')}
+                    // source={require('../../Assets/723ed5ec3a7938481878344b4389dd7a.png')}
+                    source={{uri: 'https://cdn.discordapp.com/avatars/559213233404379156/f9f5fe54a533a10712aa3ec54777093c.webp'}}
                 />
                 <View style={{ width: 30, height: 30, borderRadius: 30 / 2, borderWidth: 3, borderColor: '#2f3136', position: 'absolute', backgroundColor: props.statusAI ? '#3ba55d' : '#b9bbbe', transform: [{ translateX: 83 }, { translateY: 23 }] }} />
             </View>
@@ -156,21 +161,10 @@ const Home = (props) => {
                         </View>
                     </TouchableHighlight>
                 </View>
-            </Modal>
+            </Modal> */}
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#36393f'
-    },
-    bottomModal: {
-        justifyContent: "flex-end",
-        margin: 0,
-    }
-});
 
 const mapStateToProps = (state, props) => {
     return {
@@ -181,8 +175,8 @@ const mapStateToProps = (state, props) => {
     };
 }
 
-AppRegistry.registerHeadlessTask('SomeTaskName', () => {
-    if (checkStatus) startRecord();
-});
+// AppRegistry.registerHeadlessTask('SomeTaskName', () => {
+//     if (checkStatus) startRecord();
+// });
 
 export default connect(mapStateToProps)(Home);

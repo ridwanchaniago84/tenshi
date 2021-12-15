@@ -12,6 +12,18 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		920DD3DF6FA447E6BCC9BAA4 /* USBill-Bold Slant.otf in Resources */ = {isa = PBXBuildFile; fileRef = 84CD96837CED475FBE8172F8 /* USBill-Bold Slant.otf */; };
+		E05D160BE17A4F5BADB86589 /* USBill-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0ADE86BA2C5D479A9F38D778 /* USBill-Bold.otf */; };
+		41A03299A9A546C98C346BC3 /* USBill-ExtraBold Slant.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F2497BA9A5A47919705EC8D /* USBill-ExtraBold Slant.otf */; };
+		236BF4728970419489503A0A /* USBill-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 427D93EAC584401EB7EA0440 /* USBill-ExtraBold.otf */; };
+		FB08A19840A04B0E8376A6F7 /* USBill-ExtraLight Slant.otf in Resources */ = {isa = PBXBuildFile; fileRef = C22C34978BB64907AC9AA4D6 /* USBill-ExtraLight Slant.otf */; };
+		1D6B05E92DBB42B9B657E22D /* USBill-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = DBF48697529B4001A2170D78 /* USBill-ExtraLight.otf */; };
+		9B8D43BAE318446FAE462196 /* USBill-Light Slant.otf in Resources */ = {isa = PBXBuildFile; fileRef = E05E3F9E18BD412E8A6B5725 /* USBill-Light Slant.otf */; };
+		3B95494CC1204E2FB45CC84B /* USBill-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F9FE790B7AA14464BEB30449 /* USBill-Light.otf */; };
+		186BA9AD61A34CC88BA7DC3B /* USBill-Medium Slant.otf in Resources */ = {isa = PBXBuildFile; fileRef = C158EA4B3DA045D3AF3FE431 /* USBill-Medium Slant.otf */; };
+		6A74A74E08DB48F2A81E7808 /* USBill-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7B597CE4B0EF4B879AD6ADFD /* USBill-Medium.otf */; };
+		187427ADFF3846A8837CF832 /* USBill-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9740CD284DB4408CA17E6746 /* USBill-Regular.otf */; };
+		8C9B7871F53E48E99E7D9DA8 /* USBill-Slant.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9878A4611D9444B69AC432AB /* USBill-Slant.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +48,18 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Tenshi/main.m; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Tenshi/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		84CD96837CED475FBE8172F8 /* USBill-Bold Slant.otf */ = {isa = PBXFileReference; name = "USBill-Bold Slant.otf"; path = "../src/Assets/fonts/USBill-Bold Slant.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0ADE86BA2C5D479A9F38D778 /* USBill-Bold.otf */ = {isa = PBXFileReference; name = "USBill-Bold.otf"; path = "../src/Assets/fonts/USBill-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5F2497BA9A5A47919705EC8D /* USBill-ExtraBold Slant.otf */ = {isa = PBXFileReference; name = "USBill-ExtraBold Slant.otf"; path = "../src/Assets/fonts/USBill-ExtraBold Slant.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		427D93EAC584401EB7EA0440 /* USBill-ExtraBold.otf */ = {isa = PBXFileReference; name = "USBill-ExtraBold.otf"; path = "../src/Assets/fonts/USBill-ExtraBold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C22C34978BB64907AC9AA4D6 /* USBill-ExtraLight Slant.otf */ = {isa = PBXFileReference; name = "USBill-ExtraLight Slant.otf"; path = "../src/Assets/fonts/USBill-ExtraLight Slant.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		DBF48697529B4001A2170D78 /* USBill-ExtraLight.otf */ = {isa = PBXFileReference; name = "USBill-ExtraLight.otf"; path = "../src/Assets/fonts/USBill-ExtraLight.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E05E3F9E18BD412E8A6B5725 /* USBill-Light Slant.otf */ = {isa = PBXFileReference; name = "USBill-Light Slant.otf"; path = "../src/Assets/fonts/USBill-Light Slant.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F9FE790B7AA14464BEB30449 /* USBill-Light.otf */ = {isa = PBXFileReference; name = "USBill-Light.otf"; path = "../src/Assets/fonts/USBill-Light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C158EA4B3DA045D3AF3FE431 /* USBill-Medium Slant.otf */ = {isa = PBXFileReference; name = "USBill-Medium Slant.otf"; path = "../src/Assets/fonts/USBill-Medium Slant.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7B597CE4B0EF4B879AD6ADFD /* USBill-Medium.otf */ = {isa = PBXFileReference; name = "USBill-Medium.otf"; path = "../src/Assets/fonts/USBill-Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9740CD284DB4408CA17E6746 /* USBill-Regular.otf */ = {isa = PBXFileReference; name = "USBill-Regular.otf"; path = "../src/Assets/fonts/USBill-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9878A4611D9444B69AC432AB /* USBill-Slant.otf */ = {isa = PBXFileReference; name = "USBill-Slant.otf"; path = "../src/Assets/fonts/USBill-Slant.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +133,7 @@
 				00E356EF1AD99517003FC87E /* TenshiTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				E6EA5184A2EF4E239FA3B5B5 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -123,6 +148,26 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		E6EA5184A2EF4E239FA3B5B5 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				84CD96837CED475FBE8172F8 /* USBill-Bold Slant.otf */,
+				0ADE86BA2C5D479A9F38D778 /* USBill-Bold.otf */,
+				5F2497BA9A5A47919705EC8D /* USBill-ExtraBold Slant.otf */,
+				427D93EAC584401EB7EA0440 /* USBill-ExtraBold.otf */,
+				C22C34978BB64907AC9AA4D6 /* USBill-ExtraLight Slant.otf */,
+				DBF48697529B4001A2170D78 /* USBill-ExtraLight.otf */,
+				E05E3F9E18BD412E8A6B5725 /* USBill-Light Slant.otf */,
+				F9FE790B7AA14464BEB30449 /* USBill-Light.otf */,
+				C158EA4B3DA045D3AF3FE431 /* USBill-Medium Slant.otf */,
+				7B597CE4B0EF4B879AD6ADFD /* USBill-Medium.otf */,
+				9740CD284DB4408CA17E6746 /* USBill-Regular.otf */,
+				9878A4611D9444B69AC432AB /* USBill-Slant.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -214,6 +259,18 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				920DD3DF6FA447E6BCC9BAA4 /* USBill-Bold Slant.otf in Resources */,
+				E05D160BE17A4F5BADB86589 /* USBill-Bold.otf in Resources */,
+				41A03299A9A546C98C346BC3 /* USBill-ExtraBold Slant.otf in Resources */,
+				236BF4728970419489503A0A /* USBill-ExtraBold.otf in Resources */,
+				FB08A19840A04B0E8376A6F7 /* USBill-ExtraLight Slant.otf in Resources */,
+				1D6B05E92DBB42B9B657E22D /* USBill-ExtraLight.otf in Resources */,
+				9B8D43BAE318446FAE462196 /* USBill-Light Slant.otf in Resources */,
+				3B95494CC1204E2FB45CC84B /* USBill-Light.otf in Resources */,
+				186BA9AD61A34CC88BA7DC3B /* USBill-Medium Slant.otf in Resources */,
+				6A74A74E08DB48F2A81E7808 /* USBill-Medium.otf in Resources */,
+				187427ADFF3846A8837CF832 /* USBill-Regular.otf in Resources */,
+				8C9B7871F53E48E99E7D9DA8 /* USBill-Slant.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

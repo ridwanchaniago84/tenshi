@@ -1,11 +1,7 @@
 import { store } from '../../Redux/Store'
-import IntentLauncher, { IntentConstant } from 'react-native-intent-launcher'
 import SajjadLaunchApplication from 'react-native-launch-application';
 
 const openOtherApp = (appPackage) => {
-  IntentLauncher.startAppByPackageName(appPackage)
-    .catch((error) => console.warn('startAppByPackageName: could not open', error));
-
   SajjadLaunchApplication.open(appPackage);
 }
 

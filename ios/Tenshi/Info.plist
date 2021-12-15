@@ -36,7 +36,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -51,5 +51,20 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>USBill-Bold Slant.otf</string>
+		<string>USBill-Bold.otf</string>
+		<string>USBill-ExtraBold Slant.otf</string>
+		<string>USBill-ExtraBold.otf</string>
+		<string>USBill-ExtraLight Slant.otf</string>
+		<string>USBill-ExtraLight.otf</string>
+		<string>USBill-Light Slant.otf</string>
+		<string>USBill-Light.otf</string>
+		<string>USBill-Medium Slant.otf</string>
+		<string>USBill-Medium.otf</string>
+		<string>USBill-Regular.otf</string>
+		<string>USBill-Slant.otf</string>
+	</array>
 </dict>
 </plist>
