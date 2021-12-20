@@ -25,7 +25,6 @@ const startRecord = async () => {
 }
 
 const Menu = React.memo((props) => {
-
     const AIName = [
         'tenshi', 'Tenshi', 'tensi', 'Tensi', 'pensi', 'Pensi', 'fancy', 'Fancy', 'mc', 'MC'
     ];
@@ -73,7 +72,6 @@ const Menu = React.memo((props) => {
 
         Voice.onSpeechResults = onSpeechResults;
         Voice.onSpeechError = onSpeechError;
-
     }, []);
 
     return (

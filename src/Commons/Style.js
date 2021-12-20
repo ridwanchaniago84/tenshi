@@ -14,6 +14,14 @@ export const style = {
   },
   TransparentTextColor: {
     color: '#5a626b'
+  },
+  button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 4,
+    backgroundColor: '#007aff'
   }
 }
 

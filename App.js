@@ -28,13 +28,7 @@ const App = () => {
             <Stack.Screen
               name="torrentDownload"
               component={Torrent}
-              options={{
-                headerStyle: {
-                  backgroundColor: '#2f3136'
-                },
-                headerTintColor: '#fff',
-                title: 'Torrent Download'
-              }}
+              options={{headerShown: false}}
             />
 
             <Stack.Screen

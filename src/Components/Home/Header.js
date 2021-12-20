@@ -11,6 +11,8 @@ import { style, defaultFont } from '../../Commons/Style';
 
 const Header = (props) => {
     const [avatar, setAvatar] = useState('');
+    const [schdule, setSchdule] = useState('');
+
     useEffect(() => {
         fetch(`https://discord.com/api/v9/users/${BOT_ID}`, {
             headers: {
@@ -18,7 +20,23 @@ const Header = (props) => {
             },
         })
             .then(response => response.json())
-            .then(responseJson => setAvatar(responseJson.avatar))
+            .then(responseJson => setAvatar(responseJson.avatar));
+
+        let today = new Date();
+        today = String(today.getDate()).padStart(2, '0');
+
+        fetch('https://tenshihinanai.000webhostapp.com/api/c3240bced4d9afdcdcb375fbdde8f3ad/tenshi', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                message: `tenshi tanggal ${today} ada apa`,
+            })
+        })
+            .then(response => response.json())
+            .then(response => setSchdule(response.result))
     }, []);
 
     return (
@@ -33,7 +51,7 @@ const Header = (props) => {
                     source={{ uri: `https://cdn.discordapp.com/avatars/${BOT_ID}/${avatar}.webp` }}
                 />
                 <View style={{ width: 40, height: 40, borderRadius: 40 / 2, borderWidth: 3, borderColor: '#2f3136', backgroundColor: `${props.statusAI ? '#3eb0c9' : '#747f8d'}`, transform: [{ translateX: 45 }, { translateY: -35 }] }} />
-                <Text style={[style.mainTextColor, { fontFamily: defaultFont.normal, fontSize: 22 }]}>Catatan</Text>
+                <Text style={[style.mainTextColor, { fontFamily: defaultFont.normal, fontSize: 22 }]}>{schdule}</Text>
                 <Text style={[style.TransparentTextColor, { fontFamily: defaultFont.normal, fontSize: 17, marginTop: 10 }]}>{props.voiceText}</Text>
             </View>
         </View>
