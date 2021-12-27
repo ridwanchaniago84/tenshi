@@ -2,10 +2,12 @@ import {
     CHANGE_VOICE,
     CHANGE_STATUS,
     REFRESH_APP,
-    CHANGE_VOICE_CHARACTER
+    CHANGE_VOICE_CHARACTER,
+    CHANGE_AVATAR
 } from './Action/Constant';
 
 const initialState = {
+    avatar: '',
     voiceText: '',
     statusAI: false,
     listApp: [],
@@ -18,6 +20,11 @@ const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
     switch (action.type) {
+        case CHANGE_AVATAR:
+            return {
+                ...state,
+                avatar: action.payload
+            }
         case CHANGE_VOICE:
             return {
                 ...state,

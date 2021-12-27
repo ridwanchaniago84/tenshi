@@ -34,13 +34,7 @@ const App = () => {
             <Stack.Screen
               name="listApp"
               component={listApp}
-              options={{
-                headerStyle: {
-                  backgroundColor: '#2f3136'
-                },
-                headerTintColor: '#fff',
-                title: 'Openable Apps'
-              }}
+              options={{headerShown: false}}
             />
             <Stack.Screen
               name="developer"

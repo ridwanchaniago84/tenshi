@@ -1,20 +1,28 @@
 import React from "react";
+import { connect } from 'react-redux';
 import {
   View,
   Image
 } from 'react-native';
-import { style } from './Style'
+import { BOT_ID } from "@env";
+import { style } from './Style';
 
-const Header = () => {
+const Header = (props) => {
 
   return (
     <View style={style.container}>
       <Image
         style={{ width: 70, height: 70, borderRadius: 70 / 5, marginTop: 25, marginLeft: 20 }}
-        source={{ uri: `https://cdn.discordapp.com/avatars/559213233404379156/f9f5fe54a533a10712aa3ec54777093c.webp` }}
+        source={{ uri: `https://cdn.discordapp.com/avatars/${BOT_ID}/${props.avatar}.webp` }}
       />
     </View>
   );
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+      avatar: state.mainState.avatar
+  };
+}
+
+export default connect(mapStateToProps)(Header);

@@ -5,12 +5,12 @@ import {
     Text,
     Image
 } from 'react-native';
-import { BOT_ID, BOT_TOKEN } from "@env"
+import { BOT_ID, BOT_TOKEN } from "@env";
 
 import { style, defaultFont } from '../../Commons/Style';
+import { changeAvatar } from '../../Redux/Action/Action';
 
 const Header = (props) => {
-    const [avatar, setAvatar] = useState('');
     const [schdule, setSchdule] = useState('');
 
     useEffect(() => {
@@ -20,7 +20,7 @@ const Header = (props) => {
             },
         })
             .then(response => response.json())
-            .then(responseJson => setAvatar(responseJson.avatar));
+            .then(responseJson => props.dispatch(changeAvatar(responseJson.avatar)));
 
         let today = new Date();
         today = String(today.getDate()).padStart(2, '0');
@@ -48,7 +48,7 @@ const Header = (props) => {
                 <Text style={[style.whiteText, { fontFamily: defaultFont.bold, fontSize: 22 }]}>Tenshi</Text>
                 <Image
                     style={{ width: 125, height: 125, borderRadius: 125 / 2, marginTop: 25 }}
-                    source={{ uri: `https://cdn.discordapp.com/avatars/${BOT_ID}/${avatar}.webp` }}
+                    source={{ uri: `https://cdn.discordapp.com/avatars/${BOT_ID}/${props.avatar}.webp` }}
                 />
                 <View style={{ width: 40, height: 40, borderRadius: 40 / 2, borderWidth: 3, borderColor: '#2f3136', backgroundColor: `${props.statusAI ? '#3eb0c9' : '#747f8d'}`, transform: [{ translateX: 45 }, { translateY: -35 }] }} />
                 <Text style={[style.mainTextColor, { fontFamily: defaultFont.normal, fontSize: 22 }]}>{schdule}</Text>
@@ -61,7 +61,8 @@ const Header = (props) => {
 const mapStateToProps = (state) => {
     return {
         statusAI: state.mainState.statusAI,
-        voiceText: state.mainState.voiceText
+        voiceText: state.mainState.voiceText,
+        avatar: state.mainState.avatar
     };
 }
 
