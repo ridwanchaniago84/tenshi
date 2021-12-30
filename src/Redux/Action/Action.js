@@ -3,7 +3,8 @@ import {
     CHANGE_STATUS,
     REFRESH_APP,
     CHANGE_VOICE_CHARACTER,
-    CHANGE_AVATAR
+    CHANGE_AVATAR,
+    EDIT_APP_INFO
 } from './Constant';
 
 export const changeVoice = (val) => ({
@@ -30,3 +31,8 @@ export const changeAvatar = (val) => ({
     type: CHANGE_AVATAR,
     payload: val
 });
+
+export const changeAppInfo = (val) => ({
+    type: EDIT_APP_INFO,
+    payload: val
+}) 

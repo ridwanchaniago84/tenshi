@@ -71,11 +71,11 @@ const MagnetInput = React.memo(() => {
                 flexDirection: 'column',
                 flex: 1,
                 marginLeft: 50,
-                marginRight: 50
+                marginRight: 50,
             }}>
                 <View style={{
                     position: 'absolute',
-                    bottom: 40,
+                    bottom: 25,
                     width: '100%'
                 }}>
                     <Pressable

@@ -3,10 +3,16 @@ import {
     CHANGE_STATUS,
     REFRESH_APP,
     CHANGE_VOICE_CHARACTER,
-    CHANGE_AVATAR
+    CHANGE_AVATAR,
+    EDIT_APP_INFO
 } from './Action/Constant';
 
 const initialState = {
+    appInfo: {
+        modal: false,
+        name: '',
+        package: ''
+    },
     avatar: '',
     voiceText: '',
     statusAI: false,
@@ -20,6 +26,15 @@ const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
     switch (action.type) {
+        case EDIT_APP_INFO:
+            return {
+                ...state,
+                appInfo: {
+                    modal: action.payload.modal,
+                    name: action.payload.name,
+                    package: action.payload.package
+                }
+            }
         case CHANGE_AVATAR:
             return {
                 ...state,
