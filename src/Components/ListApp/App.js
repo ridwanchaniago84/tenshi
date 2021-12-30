@@ -2,7 +2,8 @@ import React, { useState, useCallback } from "react";
 import {
     SafeAreaView,
     ScrollView,
-    RefreshControl
+    RefreshControl,
+    Button
 } from 'react-native';
 import { connect } from 'react-redux';
 import RNInstalledApplication from 'react-native-installed-application';

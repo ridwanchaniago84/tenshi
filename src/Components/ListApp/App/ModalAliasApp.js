@@ -8,9 +8,9 @@ import {
 import { connect } from 'react-redux';
 import { style, defaultFont } from '../../../Commons/Style';
 import Modal from "react-native-modal";
-import { changeAppInfo } from '../../../Redux/Action/Action';
+import { changeAppInfo, refreshApp } from '../../../Redux/Action/Action';
 
-const ModalAliasApp = React.memo((props) => {
+const ModalAliasApp = (props) => {
     const [appAlias, setAppAlias] = useState('')
 
     const usePrevious = (value) => {
@@ -24,8 +24,7 @@ const ModalAliasApp = React.memo((props) => {
     const prevName = usePrevious(props.appInfo.name);
 
     useEffect(() => {
-        if (props.appInfo.name != prevName)
-        {
+        if (props.appInfo.name != prevName) {
             setAppAlias(props.appInfo.name);
         }
     });
@@ -37,7 +36,17 @@ const ModalAliasApp = React.memo((props) => {
             package: ''
         }));
 
-        // setAppAlias('');
+        setAppAlias('');
+    }
+
+    const changeAlias = () => {
+        const apps = props.listApp;
+        apps.find(object => object.packageName === props.appInfo.package).appName = appAlias;
+        props.dispatch(refreshApp([]));
+        props.dispatch(refreshApp(apps));
+        closeModal();
+
+        return;
     }
 
     return (
@@ -119,7 +128,7 @@ const ModalAliasApp = React.memo((props) => {
                                     marginLeft: 15
                                 }
                             ]}
-                            onPress={() => console.log('tes')}
+                            onPress={() => changeAlias()}
                         >
                             <Text style={{ fontFamily: defaultFont.normal, fontSize: 17, color: '#ecebfe' }}>Save</Text>
                         </Pressable>
@@ -128,11 +137,12 @@ const ModalAliasApp = React.memo((props) => {
             </View>
         </Modal>
     );
-});
+};
 
 const mapStateToProps = (state) => {
     return {
         appInfo: state.mainState.appInfo,
+        listApp: state.mainState.listApp
     };
 }
 
