@@ -39,13 +39,7 @@ const App = () => {
             <Stack.Screen
               name="developer"
               component={Developer}
-              options={{
-                headerStyle: {
-                  backgroundColor: '#2f3136'
-                },
-                headerTintColor: '#fff',
-                title: 'Developer Menu'
-              }}
+              options={{headerShown: false}}
             />
           </Stack.Navigator>
         </NavigationContainer>

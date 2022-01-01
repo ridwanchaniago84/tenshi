@@ -11,18 +11,21 @@ import {
 } from 'react-native';
 import Modal from "react-native-modal";
 import Tts from 'react-native-tts';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faMicrophone } from '@fortawesome/free-solid-svg-icons';
 
 import { changeVoiceCharacter } from '../../Redux/Action/Action';
+import { style, defaultFont, menu } from '../../Commons/Style'
 
 const VoiceSpeech = React.memo((props) => {
     const [showModalVoice, setShowModalVoice] = useState(false);
     const [voiceList, setVoiceList] = useState([]);
 
     useEffect(() => {
-        // setVoiceList([
-        //     { id: 'com.apple.ttsbundle.Moira-compact', name: 'Moira', language: 'en-IE', quality: 300 },
-        //     { id: 'com.apple.ttsbundle.Samantha-compact', name: 'Samantha', language: 'en-US' }
-        // ]);
+        setVoiceList([
+            { id: 'com.apple.ttsbundle.Moira-compact', name: 'Moira', language: 'en-IE', quality: 300 },
+            { id: 'com.apple.ttsbundle.Samantha-compact', name: 'Samantha', language: 'en-US' }
+        ]);
         Tts.voices().then(voices => setVoiceList(voices));
         Tts.setDefaultLanguage(props.voiceCharacter.language);
         Tts.setDefaultVoice(props.voiceCharacter.compact);
@@ -30,7 +33,7 @@ const VoiceSpeech = React.memo((props) => {
 
     const testVoince = () => {
         Tts.getInitStatus().then(() => {
-            Tts.speak('Hello World!')
+            Tts.speak('Tenshi')
         }, (err) => {
             if (err.code === 'no_engine') {
                 Tts.requestInstallEngine();
@@ -66,35 +69,40 @@ const VoiceSpeech = React.memo((props) => {
 
     return (
         <>
-            <SafeAreaView>
-                <ScrollView>
+            <View style={[style.container, { marginLeft: 25, marginRight: 25 }]}>
+                <Text style={[style.whiteText, { fontFamily: defaultFont.bold, fontSize: 25, marginBottom: 15 }]}>Voice Setting</Text>
+                <SafeAreaView>
+                    <ScrollView>
 
-                    <Text style={{ color: '#b9bbbe', fontWeight: "bold", fontSize: 15, padding: 15 }}>Voice Setting</Text>
+                        <TouchableHighlight
+                            onPress={() => setShowModalVoice(true)}
+                        >
+                            <View style={{ flexDirection: 'row' }}>
+                                <FontAwesomeIcon
+                                    style={[menu.icon, { color: '#81868b' }]}
+                                    size={30}
+                                    icon={faMicrophone} />
+                                <Text style={{ color: '#e1e2e4', fontSize: 16, paddingLeft: 15, paddingTop: 17, paddingBottom: 15 }}>Voice</Text>
+                                <Text style={{ color: '#e1e2e4', fontSize: 16, paddingTop: 17, position: 'absolute', right: 0, paddingRight: 15 }}>{props.voiceCharacter.name}</Text>
+                            </View>
+                        </TouchableHighlight>
 
-                    <TouchableHighlight
-                        onPress={() => setShowModalVoice(true)}
-                    >
-                        <View style={{ flexDirection: 'row', backgroundColor: "#36393f" }}>
-                            <Text style={{ color: '#e1e2e4', fontSize: 16, paddingLeft: 15, paddingTop: 15, paddingBottom: 15 }}>Voice</Text>
-                            <Text style={{ color: '#e1e2e4', fontSize: 16, paddingTop: 15, position: 'absolute', right: 0, paddingRight: 15 }}>{props.voiceCharacter.name}</Text>
-                        </View>
-                    </TouchableHighlight>
-
-                    <View style={styles.container}>
-                        <View style={{ margin: 15, marginTop: 0 }}>
-                            <View style={styles.buttonContainer}>
-                                <Button
-                                    style={styles.button}
-                                    title="Test Voice"
-                                    color="#5865f2"
-                                    onPress={testVoince}
-                                />
+                        <View>
+                            <View style={{ margin: 15, marginTop: 0 }}>
+                                <View style={styles.buttonContainer}>
+                                    <Button
+                                        style={styles.button}
+                                        title="Test Voice"
+                                        color="#5865f2"
+                                        onPress={testVoince}
+                                    />
+                                </View>
                             </View>
                         </View>
-                    </View>
 
-                </ScrollView>
-            </SafeAreaView>
+                    </ScrollView>
+                </SafeAreaView>
+            </View>
 
             <Modal
                 isVisible={showModalVoice}
@@ -131,7 +139,7 @@ const styles = StyleSheet.create({
     }
 });
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = (state) => {
     return {
         voiceCharacter: state.mainState.voiceCh,
     };

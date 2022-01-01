@@ -4,10 +4,13 @@ import {
 } from 'react-native';
 
 import VoiceSpeech from '../../Components/Developer/VoiceSpeech';
+import { style } from '../../Commons/Style';
+import Header from '../../Commons/Header';
 
 const Developer = () => {
     return (
-        <View style={{ flex: 1, backgroundColor: '#36393f' }}>
+        <View style={style.body}>
+            <Header />
             <VoiceSpeech />
         </View>
     );

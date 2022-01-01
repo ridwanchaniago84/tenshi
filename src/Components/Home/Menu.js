@@ -139,8 +139,8 @@ const mapStateToProps = (state, props) => {
     };
 }
 
-// AppRegistry.registerHeadlessTask('SomeTaskName', () => {
-//     if (checkStatus) startRecord();
-// });
+AppRegistry.registerHeadlessTask('SomeTaskName', () => {
+    if (checkStatus) startRecord();
+});
 
 export default connect(mapStateToProps)(Menu);
