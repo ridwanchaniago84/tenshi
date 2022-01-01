@@ -23,7 +23,7 @@ const Header = (props) => {
             .then(responseJson => props.dispatch(changeAvatar(responseJson.avatar)));
 
         let today = new Date();
-        today = String(today.getDate()).padStart(2, '0');
+        today = parseInt(String(today.getDate()).padStart(2, '0'));
 
         fetch('https://tenshihinanai.000webhostapp.com/api/c3240bced4d9afdcdcb375fbdde8f3ad/tenshi', {
             method: 'POST',
