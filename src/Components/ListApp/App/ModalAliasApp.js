@@ -10,8 +10,6 @@ import { style, defaultFont } from '../../../Commons/Style';
 import Modal from "react-native-modal";
 import { changeAppInfo, refreshApp } from '../../../Redux/Action/Action';
 
-let apps = [];
-
 const ModalAliasApp = (props) => {
     const [appAlias, setAppAlias] = useState('')
 
@@ -24,10 +22,6 @@ const ModalAliasApp = (props) => {
     }
 
     const prevName = usePrevious(props.appInfo.name);
-
-    useEffect(() => {
-        apps = props.listApp;
-    }, []);
 
     useEffect(() => {
         if (props.appInfo.name != prevName) {
@@ -46,7 +40,7 @@ const ModalAliasApp = (props) => {
     }
 
     const changeAlias = () => {
-        // const apps = props.listApp;
+        const apps = props.listApp;
         apps.find(object => object.packageName === props.appInfo.package).appName = appAlias;
         props.dispatch(refreshApp([]));
         props.dispatch(refreshApp(apps));
