@@ -1,4 +1,5 @@
-import PushNotification, { Importance } from 'react-native-push-notification'
+import PushNotification, { Importance } from 'react-native-push-notification';
+import { AUTHORIZATION } from "@env";
 import { action } from '../Commons/Action';
 
 PushNotification.createChannel(
@@ -13,12 +14,34 @@ PushNotification.createChannel(
   },
 );
 
-const responseAI = (message) => {
-  fetch('https://tenshihinanai.000webhostapp.com/api/c3240bced4d9afdcdcb375fbdde8f3ad/tenshi', {
+PushNotification.configure({
+  largeIcon: "ic_launcher",
+  smallIcon: "ic_notification",
+  requestPermissions: Platform.OS === 'ios',
+});
+
+const defaultNotif = (message) => {
+  PushNotification.localNotification({
+    channelId: "1",
+    title: 'Tenshi',
+    message: message,
+    vibration: 300
+  });
+}
+
+const responseAI = (message, AIName) => {
+  const callingAI = AIName.find(name =>
+    name === message
+  );
+
+  if (callingAI) return defaultNotif('Iya? Kenapa?');
+
+  fetch(`https://tenshihinanai.000webhostapp.com/api/tenshi`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': AUTHORIZATION
     },
     body: JSON.stringify({
       message: message,
@@ -33,12 +56,7 @@ const responseAI = (message) => {
       return response;
     })
     .then(response => {
-      PushNotification.localNotification({
-        channelId: "1",
-        title: 'Tenshi',
-        message: response.result,
-        vibration: 300
-      });
+      defaultNotif(response.result);
     })
     .catch(err => {
       console.error(err);

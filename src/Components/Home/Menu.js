@@ -58,7 +58,7 @@ const Menu = React.memo((props) => {
 
                 if (callingAI && !founded) {
                     founded = true;
-                    responseAI(e.value[0]);
+                    responseAI(e.value[0], AIName);
                 }
             });
 

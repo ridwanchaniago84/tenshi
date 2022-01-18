@@ -5,7 +5,7 @@ import {
     Text,
     Image
 } from 'react-native';
-import { BOT_ID, BOT_TOKEN } from "@env";
+import { BOT_ID, BOT_TOKEN, AUTHORIZATION } from "@env";
 
 import { style, defaultFont } from '../../Commons/Style';
 import { changeAvatar } from '../../Redux/Action/Action';
@@ -24,12 +24,13 @@ const Header = (props) => {
 
         let today = new Date();
         today = parseInt(String(today.getDate()).padStart(2, '0'));
-
-        fetch('https://tenshihinanai.000webhostapp.com/api/c3240bced4d9afdcdcb375fbdde8f3ad/tenshi', {
+    
+        fetch('https://tenshihinanai.000webhostapp.com/api/tenshi', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': AUTHORIZATION
             },
             body: JSON.stringify({
                 message: `tenshi tanggal ${today} ada apa`,
