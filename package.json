@@ -22,6 +22,7 @@
     "react-native": "0.64.2",
     "react-native-dotenv": "^3.3.1",
     "react-native-gesture-handler": "^1.10.3",
+    "react-native-incoming-call": "^2.0.3",
     "react-native-installed-application": "^1.0.6",
     "react-native-intent-launcher": "^0.2.1",
     "react-native-launch-application": "^1.0.1",

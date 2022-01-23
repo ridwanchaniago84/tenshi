@@ -8,6 +8,7 @@ import { style } from '../../Commons/Style';
 import Header from '../../Commons/Header';
 
 const Developer = () => {
+
     return (
         <View style={style.body}>
             <Header />

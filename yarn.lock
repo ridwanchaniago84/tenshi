@@ -5894,6 +5894,11 @@ react-native-gesture-handler@^1.10.3:
     invariant "^2.2.4"
     prop-types "^15.7.2"
 
+react-native-incoming-call@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-incoming-call/-/react-native-incoming-call-2.0.3.tgz#c786a2868498477b8e8027729cb72a9813c0d2a2"
+  integrity sha512-G1HyoQcXwqQQQPdenOyJkcN4D9jbHosRKaQPfdG/6oIrkHThy3iWywIJHCCyqKvJwhF0Qz1WhEMFckzH1kvGhw==
+
 react-native-installed-application@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/react-native-installed-application/-/react-native-installed-application-1.0.6.tgz#1b4522cfe31962dd4eb6977c2b8d780efd94b1e4"
