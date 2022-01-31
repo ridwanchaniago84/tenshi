@@ -39,9 +39,18 @@ const ModalAliasApp = (props) => {
         setAppAlias('');
     }
 
+    const titleCase = (str) => {
+        var splitStr = str.toLowerCase().split(' ');
+        for (var i = 0; i < splitStr.length; i++) {
+            splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+        }
+    
+        return splitStr.join(' '); 
+     }
+
     const changeAlias = () => {
         const apps = props.listApp;
-        apps.find(object => object.packageName === props.appInfo.package).appName = appAlias;
+        apps.find(object => object.packageName === props.appInfo.package).appName = titleCase(appAlias);
         props.dispatch(refreshApp([]));
         props.dispatch(refreshApp(apps));
         closeModal();
