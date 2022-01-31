@@ -3,7 +3,7 @@ import {
     SafeAreaView,
     ScrollView,
     RefreshControl,
-    Button
+    Text
 } from 'react-native';
 import { connect } from 'react-redux';
 import RNInstalledApplication from 'react-native-installed-application';
@@ -24,6 +24,28 @@ const App = (props) => {
             .catch(error => console.log(error));
     }, []);
 
+    const Content = () => {
+        console.log(props.listApp.length);
+        if (props.listApp.length > 0) {
+            return (
+                props.listApp.map((appName, index) => {
+                    return (
+                        <AppBox
+                            appName={appName.appName}
+                            icon={`data:image/png;base64,${appName.icon}`}
+                            package={appName.packageName}
+                            key={index}
+                        />
+                    )
+                })
+            );
+        }
+        
+        return (
+            <Text style={{ color: 'white', textAlign: 'center', marginBottom: '100%' }}>Pull down for refresh</Text>
+        );
+    }
+
     return (
         <>
             <SafeAreaView
@@ -40,18 +62,7 @@ const App = (props) => {
                             colors={["#4883f7", "#2068f5"]}
                         />
                     }>
-                    {
-                        props.listApp.map((appName, index) => {
-                            return (
-                                <AppBox
-                                    appName={appName.appName}
-                                    icon={`data:image/png;base64,${appName.icon}`}
-                                    package={appName.packageName}
-                                    key={index}
-                                />
-                            )
-                        })
-                    }
+                    <Content />
                 </ScrollView>
             </SafeAreaView>
             <ModalAliasApp />
