@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 import { faDotCircle, faMagnet, faThLarge, faCode } from '@fortawesome/free-solid-svg-icons';
 import Voice from '@react-native-voice/voice';
+import PushNotification, { Importance } from 'react-native-push-notification';
+
 import TextMenu from './Menu/TextMenu';
 import { responseAI, cancelNotif, statusNotification } from '../../Notification/Notification';
 import { changeVoice, changeStatus } from '../../Redux/Action/Action';
@@ -29,13 +31,36 @@ const Menu = React.memo((props) => {
         'tenshi', 'Tenshi', 'tensi', 'Tensi', 'pensi', 'Pensi', 'fancy', 'Fancy', 'mc', 'MC'
     ];
 
-    const statusChanged = () => {
-        let status = false
-        if (props.statusAI === false) status = true;
+    const sendMessage = (text) => {
+        responseAI(text, AIName);
+    }
 
+    PushNotification.configure({
+        requestPermissions: Platform.OS === 'ios',
+        onNotification(notification) {
+            if (notification.action === "Restart") {
+                statusChanged(true);
+                return;
+            }
+
+            if (notification.action === "Deactive") {
+                statusChanged(false, true);
+                return;
+            }
+
+            if (notification.action === "ReplyInput") {
+                const text = notification.reply_text;
+
+                sendMessage(`Tenshi ${text}`);
+                return;
+            }
+        }
+    });
+
+    const statusChanged = (status, notifStillActive = false) => {
         props.dispatch(changeStatus(status));
         checkStatus = status;
-
+        
         if (status) {
             startRecord();
             statusNotification();
@@ -43,7 +68,13 @@ const Menu = React.memo((props) => {
         }
 
         Voice.destroy()
-        cancelNotif();
+
+        if (!notifStillActive) {
+            cancelNotif();
+            return;
+        }
+
+        statusNotification();
         return;
     }
 
@@ -79,7 +110,7 @@ const Menu = React.memo((props) => {
             <ScrollView>
 
                 <TouchableHighlight
-                    onPress={() => statusChanged()}
+                    onPress={() => statusChanged(props.statusAI ? false : true)}
                     style={{ marginBottom: 10 }}
                 >
                     <View style={{ flexDirection: 'row' }}>
@@ -89,7 +120,7 @@ const Menu = React.memo((props) => {
                             trackColor={'#2c374c'}
                             thumbColor={props.statusAI ? "#3eb0c9" : "#a6a6ae"}
                             ios_backgroundColor="#3e3e3e"
-                            onValueChange={() => statusChanged()}
+                            onValueChange={() => statusChanged(props.statusAI ? false : true)}
                             value={props.statusAI}
                         />
                     </View>

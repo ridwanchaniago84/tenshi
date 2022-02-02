@@ -25,6 +25,7 @@
         </intent-filter>
       </activity>
       <service android:name=".Service.MyTaskService" />
+      <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationActions" />
     </application>
 </manifest>
 

@@ -25,7 +25,6 @@ const App = (props) => {
     }, []);
 
     const Content = () => {
-        console.log(props.listApp.length);
         if (props.listApp.length > 0) {
             return (
                 props.listApp.map((appName, index) => {

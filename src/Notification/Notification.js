@@ -17,7 +17,7 @@ PushNotification.createChannel(
 PushNotification.configure({
   largeIcon: "ic_launcher",
   smallIcon: "ic_notification",
-  requestPermissions: Platform.OS === 'ios',
+  requestPermissions: Platform.OS === 'ios'
 });
 
 const defaultNotif = (message) => {
@@ -67,9 +67,12 @@ const statusNotification = () => {
   PushNotification.localNotification({
     channelId: "1",
     title: 'Tenshi',
+    actions: ["Restart", "Deactive", "ReplyInput"],
     message: 'AI Active',
-    ongoing: true
-  })
+    ongoing: true,
+    reply_placeholder_text: "Send text to Tenshi ...",
+    reply_button_text: "Send Message"
+  });
 }
 
 const cancelNotif = () => PushNotification.cancelAllLocalNotifications()
