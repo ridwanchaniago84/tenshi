@@ -24,8 +24,10 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
       </activity>
-      <service android:name=".Service.MyTaskService" />
+      <service android:name="com.asterinet.react.bgactions.RNBackgroundActionsTask" />
+      <!-- <service android:name=".Service.MyTaskService" /> -->
       <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationActions" />
+      <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationActionReceiver" />
     </application>
 </manifest>
 

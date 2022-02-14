@@ -69,9 +69,10 @@ const statusNotification = () => {
     title: 'Tenshi',
     actions: ["Restart", "Deactive", "ReplyInput"],
     message: 'AI Active',
-    ongoing: true,
+    // ongoing: true,
     reply_placeholder_text: "Send text to Tenshi ...",
-    reply_button_text: "Send Message"
+    reply_button_text: "Send Message",
+    invokeApp: false
   });
 }
 

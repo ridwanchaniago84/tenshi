@@ -9,7 +9,7 @@ const call = () => {
         'TenshiUUIDv1',
         'Tenshi',
         `https://cdn.discordapp.com/avatars/${BOT_ID}/${avatar}.webp`,
-        'Di sini ><',
+        'Di sini! Di sini!',
         20000
     );
 } 

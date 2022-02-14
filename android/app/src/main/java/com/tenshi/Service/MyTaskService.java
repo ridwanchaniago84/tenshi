@@ -13,9 +13,9 @@ public class MyTaskService extends HeadlessJsTaskService {
     Bundle extras = intent.getExtras();
     if (extras != null) {
       return new HeadlessJsTaskConfig(
-          "SomeTaskName",
+          "NotificationService",
           Arguments.fromBundle(extras),
-          -1, // timeout for the task
+          5000, // timeout for the task
           true // optional: defines whether or not  the task is allowed in foreground. Default is false
         );
     }

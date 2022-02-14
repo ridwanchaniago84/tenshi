@@ -5,12 +5,12 @@ import {
     SafeAreaView,
     ScrollView,
     TouchableHighlight,
-    Switch,
-    AppRegistry
+    Switch
 } from 'react-native';
 import { faDotCircle, faMagnet, faThLarge, faCode } from '@fortawesome/free-solid-svg-icons';
 import Voice from '@react-native-voice/voice';
-import PushNotification, { Importance } from 'react-native-push-notification';
+import PushNotification from 'react-native-push-notification';
+import BackgroundService from 'react-native-background-actions';
 
 import TextMenu from './Menu/TextMenu';
 import { responseAI, cancelNotif, statusNotification } from '../../Notification/Notification';
@@ -37,7 +37,7 @@ const Menu = React.memo((props) => {
 
     PushNotification.configure({
         requestPermissions: Platform.OS === 'ios',
-        onNotification(notification) {
+        onAction: function (notification) {
             if (notification.action === "Restart") {
                 statusChanged(true);
                 return;
@@ -50,23 +50,51 @@ const Menu = React.memo((props) => {
 
             if (notification.action === "ReplyInput") {
                 const text = notification.reply_text;
-
                 sendMessage(`Tenshi ${text}`);
                 return;
             }
         }
     });
 
+    const sleep = (time) => new Promise((resolve) => setTimeout(() => resolve(), time));
+
+    const options = {
+        taskName: 'Background Action',
+        taskTitle: 'Tenshi',
+        taskDesc: 'Services Active',
+        taskIcon: {
+            name: 'ic_notification',
+            type: 'mipmap',
+        },
+        linkingURI: 'https://discord.com/api/oauth2/authorize?client_id=559213233404379156&permissions=8&scope=bot', // See Deep Linking for more info
+        parameters: {
+            delay: 1000,
+        },
+    };
+
+    const veryIntensiveTask = async () => {
+        startRecord();
+
+        const { delay } = taskDataArguments;
+        await new Promise(async (resolve) => {
+            for (let i = 0; BackgroundService.isRunning(); i++) {
+                console.log(i);
+                await sleep(delay);
+            }
+        });
+    };
+
     const statusChanged = (status, notifStillActive = false) => {
         props.dispatch(changeStatus(status));
         checkStatus = status;
-        
+
         if (status) {
-            startRecord();
+            BackgroundService.start(veryIntensiveTask, options);
             statusNotification();
             return;
         }
 
+        BackgroundService.stop();
         Voice.destroy()
 
         if (!notifStillActive) {
@@ -169,9 +197,5 @@ const mapStateToProps = (state, props) => {
         navigation: props.Navigation
     };
 }
-
-AppRegistry.registerHeadlessTask('SomeTaskName', () => {
-    if (checkStatus) startRecord();
-});
 
 export default connect(mapStateToProps)(Menu);
