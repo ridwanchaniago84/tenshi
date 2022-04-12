@@ -72,7 +72,7 @@ const Menu = React.memo((props) => {
         },
     };
 
-    const veryIntensiveTask = async () => {
+    const veryIntensiveTask = async (taskDataArguments) => {
         startRecord();
 
         const { delay } = taskDataArguments;
