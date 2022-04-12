@@ -5910,6 +5910,11 @@ react-native-background-actions@^2.6.5:
   dependencies:
     eventemitter3 "^4.0.7"
 
+react-native-callkeep@^4.3.2:
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/react-native-callkeep/-/react-native-callkeep-4.3.2.tgz#5cfd999551861cd07643c6da8170ce33194eb945"
+  integrity sha512-F2iO9Kil71dWxocYv0wEBHqdxjKjodf/sLrK0wGMoECyTXAjeDhYlprYyTSZcXX1M6vYhgGZeTtBrTZ7ZjLaFA==
+
 react-native-codegen@^0.0.6:
   version "0.0.6"
   resolved "https://registry.npmjs.org/react-native-codegen/-/react-native-codegen-0.0.6.tgz"
@@ -5937,10 +5942,10 @@ react-native-gesture-handler@^1.10.3:
     invariant "^2.2.4"
     prop-types "^15.7.2"
 
-react-native-incoming-call@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/react-native-incoming-call/-/react-native-incoming-call-2.0.3.tgz#c786a2868498477b8e8027729cb72a9813c0d2a2"
-  integrity sha512-G1HyoQcXwqQQQPdenOyJkcN4D9jbHosRKaQPfdG/6oIrkHThy3iWywIJHCCyqKvJwhF0Qz1WhEMFckzH1kvGhw==
+react-native-incoming-call-android@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-incoming-call-android/-/react-native-incoming-call-android-1.0.3.tgz#07b6b648d12c2a7319dba8dda2a4f3dbd7c0a679"
+  integrity sha512-0UNqsfG9QfWaocZ+ShaMKr+7vENLolCBN5GG4A5nT4Nuuzw+HESid3xR6o2KAEIONNpz2xhDCDKOZEymGbQiJQ==
 
 react-native-installed-application@^1.0.6:
   version "1.0.6"

@@ -15,6 +15,8 @@ import BackgroundService from 'react-native-background-actions';
 import TextMenu from './Menu/TextMenu';
 import { responseAI, cancelNotif, statusNotification } from '../../Notification/Notification';
 import { changeVoice, changeStatus } from '../../Redux/Action/Action';
+import { BOT_ID } from "@env";
+import call, { callPercobaan } from '../../Commons/Action/Call';
 
 let checkStatus = false;
 
@@ -66,7 +68,7 @@ const Menu = React.memo((props) => {
             name: 'ic_notification',
             type: 'mipmap',
         },
-        linkingURI: 'https://discord.com/api/oauth2/authorize?client_id=559213233404379156&permissions=8&scope=bot', // See Deep Linking for more info
+        linkingURI: `https://discord.com/api/oauth2/authorize?client_id=${BOT_ID}&permissions=8&scope=bot`,
         parameters: {
             delay: 1000,
         },
@@ -80,6 +82,8 @@ const Menu = React.memo((props) => {
             for (let i = 0; BackgroundService.isRunning(); i++) {
                 console.log(i);
                 await sleep(delay);
+                // call();
+                callPercobaan();
             }
         });
     };
