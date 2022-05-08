@@ -1,5 +1,6 @@
 import { store } from '../../Redux/Store'
 import SajjadLaunchApplication from 'react-native-launch-application';
+import { DEEP_LINK } from '@env';
 
 const openOtherApp = (appPackage) => {
   SajjadLaunchApplication.open(appPackage);
@@ -13,13 +14,17 @@ const titleCase = (str) => {
   return splitStr.join(' ');
 }
 
-const OpenApp = (appName) => {
+const OpenApp = async (appName) => {
   appName = titleCase(appName);
 
   const appPackage = store.getState().mainState.listApp.find(object => object.appName === appName).packageName
 
   if (appPackage) {
-    openOtherApp(appPackage);
+    await Linking.openURL(DEEP_LINK);
+
+    setTimeout(() => {
+      openOtherApp(appPackage);
+    }, 1000);
   }
 
   return;

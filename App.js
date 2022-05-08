@@ -11,8 +11,24 @@ import Home from "./src/Screen/Home/Index";
 import Torrent from "./src/Screen/Torrrent/Index";
 import listApp from "./src/Screen/App/ListApp";
 import Developer from './src/Screen/Developer/Developer';
+import { DEEP_LINK } from '@env';
 
 const Stack = createStackNavigator();
+
+const linking = {
+  prefixes: [DEEP_LINK],
+  config: {
+    initialRouteName: 'AISetting',
+    // screens: {
+    //   AISetting: {
+    //     path: 'home'
+    //   },
+    //   torrentDownload: {
+    //     path: 'torrent'
+    //   }
+    // }
+  }
+};
 
 const App = () => {
   useEffect(() => {
@@ -22,7 +38,9 @@ const App = () => {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <NavigationContainer>
+        <NavigationContainer
+          linking={linking}
+        >
           <Stack.Navigator >
             <Stack.Screen
               name="AISetting"

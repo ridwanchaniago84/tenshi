@@ -1,11 +1,12 @@
 import OpenApp from './Action/OpenApp';
-import call from './Action/Call';
+import call, { callPercobaan } from './Action/Call';
 
 export const action = (paramenter) => {
   switch (paramenter.action) {
     case 'call':
       call();
-      break
+      // callPercobaan();
+      break;
     case 'openApp':
       OpenApp(paramenter.parameter);
       break;

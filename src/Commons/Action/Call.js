@@ -1,18 +1,23 @@
 import { store } from '../../Redux/Store'
-import IncomingCall from 'react-native-incoming-call-android';
+import IncomingCall from 'react-native-incoming-call';
 import { BOT_ID } from "@env";
 import RNCallKeep from 'react-native-callkeep';
+import { Linking } from "react-native";
+import { DEEP_LINK } from '@env';
 
-const call = () => {
+const call = async () => {
     const avatar = store.getState().mainState.avatar;
+    await Linking.openURL(DEEP_LINK);
 
-    IncomingCall.display(
-        'TenshiUUIDv1',
-        'Tenshi',
-        `https://cdn.discordapp.com/avatars/${BOT_ID}/${avatar}.webp`,
-        'Di sini! Di sini!',
-        20000
-    );
+    setTimeout(() => {
+        IncomingCall.display(
+            'TenshiUUIDv1',
+            'Tenshi',
+            `https://cdn.discordapp.com/avatars/${BOT_ID}/${avatar}.webp`,
+            'Di sini! Di sini!',
+            20000
+        );
+    }, 1000);
 }
 
 const callPercobaan = () => {

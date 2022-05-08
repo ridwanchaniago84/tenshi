@@ -16,7 +16,6 @@ import TextMenu from './Menu/TextMenu';
 import { responseAI, cancelNotif, statusNotification } from '../../Notification/Notification';
 import { changeVoice, changeStatus } from '../../Redux/Action/Action';
 import { BOT_ID } from "@env";
-import call, { callPercobaan } from '../../Commons/Action/Call';
 
 let checkStatus = false;
 
@@ -82,8 +81,6 @@ const Menu = React.memo((props) => {
             for (let i = 0; BackgroundService.isRunning(); i++) {
                 console.log(i);
                 await sleep(delay);
-                // call();
-                callPercobaan();
             }
         });
     };

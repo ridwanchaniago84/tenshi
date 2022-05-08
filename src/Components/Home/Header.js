@@ -38,6 +38,7 @@ const Header = (props) => {
         })
             .then(response => response.json())
             .then(response => setSchdule(response.result))
+            .catch(err => console.error(err));
     }, []);
 
     return (
