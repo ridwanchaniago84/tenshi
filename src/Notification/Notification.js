@@ -6,7 +6,7 @@ PushNotification.createChannel(
   {
     channelId: "1",
     channelName: "Default",
-    channelDescription: "Default Notification Channel",
+    channelDescription: "Tenshi Default Notification",
     playSound: false,
     soundName: "default",
     importance: Importance.HIGH,
@@ -14,17 +14,32 @@ PushNotification.createChannel(
   },
 );
 
-PushNotification.configure({
-  largeIcon: "ic_launcher",
-  smallIcon: "ic_notification",
-  requestPermissions: Platform.OS === 'ios'
-});
+// PushNotification.configure({
+//   largeIcon: "ic_launcher",
+//   smallIcon: "ic_notification",
+//   requestPermissions: Platform.OS === 'ios'
+// });
 
 const defaultNotif = (message) => {
   PushNotification.localNotification({
     channelId: "1",
     title: 'Tenshi',
     message: message,
+    vibration: 300
+  });
+}
+
+const setSchduleNotification = (message, date) => {
+  const timestamp = Date.parse(date);
+  const dateObject = new Date(timestamp);
+
+  PushNotification.localNotificationSchedule({
+    channelId: "1",
+    title: 'Tenshi',
+    message: message,
+    date: dateObject,
+    allowWhileIdle: true,
+    repeatTime: 1,
     vibration: 300
   });
 }
@@ -78,4 +93,4 @@ const statusNotification = () => {
 
 const cancelNotif = () => PushNotification.cancelAllLocalNotifications()
 
-export { responseAI, cancelNotif, statusNotification };
+export { responseAI, cancelNotif, statusNotification, setSchduleNotification };

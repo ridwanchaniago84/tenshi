@@ -15,7 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faMicrophone } from '@fortawesome/free-solid-svg-icons';
 
 import { changeVoiceCharacter } from '../../Redux/Action/Action';
-import { style, defaultFont, menu } from '../../Commons/Style'
+import { style, defaultFont, menu } from '../../Commons/Style';
 
 const VoiceSpeech = React.memo((props) => {
     const [showModalVoice, setShowModalVoice] = useState(false);
