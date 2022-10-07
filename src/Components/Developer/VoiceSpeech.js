@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { connect } from 'react-redux';
 import {
     View,
@@ -41,7 +41,7 @@ const VoiceSpeech = React.memo((props) => {
         });
     }
 
-    const changeVoice = (voice) => {
+    const changeVoice = useCallback((voice) => {
         props.dispatch(changeVoiceCharacter({
             name: voice.name,
             language: voice.language,
@@ -52,7 +52,7 @@ const VoiceSpeech = React.memo((props) => {
         Tts.setDefaultVoice(voice.id);
 
         setShowModalVoice(false);
-    }
+    }, [showModalVoice]);
 
     const VoiceListComponent = voiceList.map((voice, index) => {
         return (

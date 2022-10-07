@@ -1,4 +1,4 @@
-package com.tenshi;
+package com.zankenzu.tenshi;
 
 import android.app.Application;
 import android.content.Context;

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "799282404929",
+    "firebase_url": "https://si-cantik-4fce3-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "si-cantik-4fce3",
+    "storage_bucket": "si-cantik-4fce3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799282404929:android:c4b105b60507efa63770c0",
+        "android_client_info": {
+          "package_name": "com.zankenzu.tenshi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799282404929-4ifbajhpj421iev6l6k0p8ah5akcdqvm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCx_XOmBrquK6IcVTDueEolfted69mY4Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "799282404929-4ifbajhpj421iev6l6k0p8ah5akcdqvm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -12,8 +12,21 @@ import Torrent from "./src/Screen/Torrrent/Index";
 import listApp from "./src/Screen/App/ListApp";
 import Developer from './src/Screen/Developer/Developer';
 import { DEEP_LINK } from '@env';
+import database from '@react-native-firebase/database';
+import { setSchduleNotification } from './src/Notification/Notification';
 
 const Stack = createStackNavigator();
+
+database()
+  .ref('schdule')
+  .orderByKey()
+  .limitToLast(1)
+  .on('value', snapshot => {
+    snapshot.forEach((data) => {
+      const dataJson = data.toJSON();
+      setSchduleNotification(dataJson.title, dataJson.date);
+    });
+  });
 
 const linking = {
   prefixes: [DEEP_LINK],

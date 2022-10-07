@@ -17,6 +17,4 @@ const ListApp = () => {
     );
 }
 
-
-
 export default ListApp;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import {
     View,
     Text,
@@ -29,7 +29,7 @@ const ModalAliasApp = (props) => {
         }
     });
 
-    const closeModal = () => {
+    const closeModal = useCallback(() => {
         props.dispatch(changeAppInfo({
             modal: false,
             name: '',
@@ -37,16 +37,16 @@ const ModalAliasApp = (props) => {
         }));
 
         setAppAlias('');
-    }
+    }, [appAlias]);
 
     const titleCase = (str) => {
         var splitStr = str.toLowerCase().split(' ');
         for (var i = 0; i < splitStr.length; i++) {
-            splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+            splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
         }
-    
-        return splitStr.join(' '); 
-     }
+
+        return splitStr.join(' ');
+    }
 
     const changeAlias = () => {
         const apps = props.listApp;

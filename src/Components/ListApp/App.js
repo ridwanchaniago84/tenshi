@@ -22,7 +22,7 @@ const App = (props) => {
             .then(apps => props.dispatch(refreshApp(apps)))
             .then(() => setRefreshing(false))
             .catch(error => console.log(error));
-    }, []);
+    }, [refreshing]);
 
     const Content = () => {
         if (props.listApp.length > 0) {
