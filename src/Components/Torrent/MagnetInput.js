@@ -88,6 +88,6 @@ const MagnetInput = React.memo(() => {
             </View>
         </>
     );
-})
+});
 
 export default MagnetInput;

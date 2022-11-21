@@ -93,4 +93,4 @@ const statusNotification = () => {
 
 const cancelNotif = () => PushNotification.cancelAllLocalNotifications()
 
-export { responseAI, cancelNotif, statusNotification, setSchduleNotification };
+export { responseAI, cancelNotif, statusNotification, setSchduleNotification, defaultNotif };
