@@ -1,5 +1,5 @@
 import PushNotification, { Importance } from 'react-native-push-notification';
-import { AUTHORIZATION } from "@env";
+import { AUTHORIZATION, DOMAIN_API } from "@env";
 import { action } from '../Commons/Action';
 
 PushNotification.createChannel(
@@ -51,7 +51,7 @@ const responseAI = (message, AIName) => {
 
   if (callingAI) return defaultNotif('Iya? Kenapa?');
 
-  fetch(`https://tenshihinanai.000webhostapp.com/api/tenshi`, {
+  fetch(`http://tenshihinanai.byethost22.com/api/tenshi`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',

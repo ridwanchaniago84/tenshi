@@ -5,7 +5,7 @@ import {
     Text,
     Image
 } from 'react-native';
-import { BOT_ID, BOT_TOKEN, AUTHORIZATION } from "@env";
+import { BOT_ID, BOT_TOKEN, AUTHORIZATION, DOMAIN_API } from "@env";
 
 import { style, defaultFont } from '../../Commons/Style';
 import { changeAvatar } from '../../Redux/Action/Action';
@@ -25,7 +25,7 @@ const Header = (props) => {
         let today = new Date();
         today = parseInt(String(today.getDate()).padStart(2, '0'));
     
-        fetch('https://tenshihinanai.000webhostapp.com/api/tenshi', {
+        fetch(`http://tenshihinanai.byethost22.com/api/tenshi`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -38,7 +38,7 @@ const Header = (props) => {
         })
             .then(response => response.json())
             .then(response => setSchdule(response.result))
-            // .then(response => console.log(response.result))
+            // .then(response => console.log(response))
             .catch(err => console.error(err));
     }, []);
 
